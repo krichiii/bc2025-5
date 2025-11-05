@@ -10,7 +10,21 @@ program
   .requiredOption('-h, --host <host>', 'адреса сервера')
   .requiredOption('-p, --port <port>', 'порт сервера')
   .requiredOption('-c, --cache <path>', 'шлях до директорії кешу');
-
+  configureOutput({
+    outputError: (str, write) => {
+      switch(true)
+      {
+        case (str.includes('--host')): 
+          write('please specify server host\n')
+          break
+        case (str.includes('--port')):
+          write('please specify server port\n')
+          break
+        default:
+          write(str);
+      }
+    }
+  });
 program.parse(process.argv);
 const options = program.opts();
 
