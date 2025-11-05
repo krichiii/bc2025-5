@@ -71,7 +71,7 @@ const server = http.createServer(async (req, res) => {
 
   // ігноруємо запити без коду (наприклад /favicon.ico)
   if (!code || isNaN(code)) {
-    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
     return res.end('Bad request: вкажіть HTTP код у URL, наприклад /200');
   }
 
