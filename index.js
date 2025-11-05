@@ -9,8 +9,8 @@ const program = new Command();
 program
   .requiredOption('-h, --host <host>', 'адреса сервера')
   .requiredOption('-p, --port <port>', 'порт сервера')
-  .requiredOption('-c, --cache <path>', 'шлях до директорії кешу');
-  configureOutput({
+  .requiredOption('-c, --cache <path>', 'шлях до директорії кешу')
+  .configureOutput({
     outputError: (str, write) => {
       switch(true)
       {
